@@ -50,7 +50,7 @@ Then run `php artisan vendor:publish --provider="Davmixcool\MetaManager\MetaServ
 
 ### Configuration
 
-Setup defualt application meta in `meta.php` config. (Optional but recommended)
+Setup default application meta in `meta.php` config. (Optional but recommended)
 
 #### Available options:
 
