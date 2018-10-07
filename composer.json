@@ -1,0 +1,27 @@
+{
+    "name": "davmixcool/laravel-meta-manager",
+    "type": "library",
+    "description": "Laravel Meta Manager is an SEO tool that is used to improve SEO of a website or specific page by adding recommended meta tags to your application. ",
+    "keywords": ["seo","tags","Social","davmixcool","laravel-meta-manager","meta-tags"],
+    "homepage": "https://github.com/davmixcool/laravel-meta-manager",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Oti",
+            "email": "davmixcool@gmail.com",
+            "role": "Senior Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~4.0||~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Davmixcool\\MetaManager\\": "src"
+        }
+    },
+    "minimum-stability": "stable"
+}
