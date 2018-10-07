@@ -75,7 +75,7 @@ Option | Description
 
 ### Usage
 
-Once configuration is complete you can then add the below at the meta area of your page you want to include meta tags;
+Once configuration is complete you can then add the below at the meta area of the page you want to include meta tags;
 
 ```php
 @include('meta::manager')
