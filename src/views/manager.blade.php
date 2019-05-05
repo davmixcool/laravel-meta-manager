@@ -34,7 +34,7 @@
 	<meta property="og:url" content="{{ url()->current() }}">
 	<meta property="og:title" content="{{ !empty($title)? $title : config('meta.title') }}">
 	<meta property="og:description" content="{{ !empty($description)? $description : config('meta.description') }}">
-	<meta property="og:image" content="{{ !empty($image)? $image : config('meta.image') }}">
+	<meta property="og:image" content="{{ !empty($image)? $image : config('meta.image') }}" itemprop="image">
 	<meta property="og:site_name" content="{{  config('app.name') }}">
 
 	@if(config('meta.fb_app_id') !=='')
