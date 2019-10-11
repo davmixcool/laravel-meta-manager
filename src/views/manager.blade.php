@@ -52,6 +52,3 @@
 	<meta name="twitter:description" content="{{ !empty($description)? $description : config('meta.description') }}">
 	<meta name="twitter:image" content="{{ !empty($image)? $image : config('meta.image') }}">
 
-
-	<!-- Google Plus Full-Bleed Image -->
-	<meta itemprop="og:headline" content="{{ !empty($image)? $image : config('meta.image') }}" />
