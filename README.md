@@ -12,7 +12,6 @@ Laravel Meta Manager is an SEO tool that is used to improve SEO of a website or 
 * Dublin Core
 * Facebook OpenGraph
 * Twitter Card
-* Google Plus
 
 ## Requirements
 
@@ -65,7 +64,7 @@ Option | Description
 `image` | Here you may provide the url to the image you want search engines and crawlers to make use of when displaying your website or a specific page page.
 `author` | Here you may provide the author's name you want search engines to make use of when displaying your website or a specific page page.
 `geo_region` | Here you specify the region of your location. This is useful if you have a physical location that is important for your business.
-`geo_position` | Here your specify the geo coordinates of your physical location in longitude and latitude. 
+`geo_position` | Here you specify the geo coordinates of your physical location in longitude and latitude. 
 `twitter_site` | Here you may provide your twitter @username of your account
 `twitter_card` | Here you may specify the way you want crawlers to understand your twitter share type.
 `fb_app_id` | Here you may provide your facebook app id
