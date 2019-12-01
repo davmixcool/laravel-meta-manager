@@ -37,6 +37,9 @@ Run the following to include this package via Composer
 composer require davmixcool/laravel-meta-manager
 ```
 
+#### Laravel 5.5 uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
+
+
 Once download is complete, the next thing you have to do is include the service provider within `config/app.php`.
 
 ```php

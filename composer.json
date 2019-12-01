@@ -23,5 +23,13 @@
             "Davmixcool\\MetaManager\\": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Davmixcool\\MetaManager\\MetaServiceProvider"
+            ]
+        }
+    },
+    
     "minimum-stability": "stable"
 }
