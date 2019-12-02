@@ -1,4 +1,8 @@
 	<!-- Standard SEO -->
+	@isset($title)
+		<title>{{ $title }}</title>
+	@endisset
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="referrer" content="{{ !empty($referrer)? $referrer : config('meta.referrer') }}">
 	<meta name="robots" content="{{ !empty($robots)? $robots : config('meta.robots') }}">
