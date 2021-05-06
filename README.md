@@ -2,7 +2,7 @@
 
 Laravel Meta Manager is an SEO tool that is used to improve the SEO of a website or specific page by adding recommended meta tags to your application.
 
-[![GitHub license](https://img.shields.io/github/license/davmixcool/laravel-meta-manager.svg)](https://github.com/davmixcool/laravel-meta-manager/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/davmixcool/laravel-meta-manager.svg)](https://github.com/davmixcool/laravel-meta-manager/issues) [![CodeFactor](https://www.codefactor.io/repository/github/davmixcool/laravel-meta-manager/badge)](https://www.codefactor.io/repository/github/davmixcool/laravel-meta-manager) [![Stable](https://poser.pugx.org/davmixcool/laravel-meta-manager/v/stable.svg)](https://poser.pugx.org/davmixcool/laravel-meta-manager/v/stable.svg) [![Download](https://poser.pugx.org/davmixcool/laravel-meta-manager/d/total.svg)![Twitter](https://img.shields.io/twitter/url/https/github.com/davmixcool/laravel-meta-manager.svg?style=social)](https://poser.pugx.org/davmixcool/laravel-meta-manager/d/total.svg)
+[![GitHub license](https://img.shields.io/github/license/davmixcool/laravel-meta-manager.svg)](https://github.com/davmixcool/laravel-meta-manager/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/davmixcool/laravel-meta-manager.svg)](https://github.com/davmixcool/laravel-meta-manager/issues) [![CodeFactor](https://www.codefactor.io/repository/github/davmixcool/laravel-meta-manager/badge)](https://www.codefactor.io/repository/github/davmixcool/laravel-meta-manager) [![Stable](https://poser.pugx.org/davmixcool/laravel-meta-manager/v/stable.svg)](https://poser.pugx.org/davmixcool/laravel-meta-manager/v/stable.svg) [![Download](https://poser.pugx.org/davmixcool/laravel-meta-manager/d/total.svg)](https://poser.pugx.org/davmixcool/laravel-meta-manager/d/total.svg) ![Twitter](https://img.shields.io/twitter/url/https/github.com/davmixcool/laravel-meta-manager.svg?style=social)
 
 ## SEO Features
 
@@ -22,6 +22,8 @@ Laravel Meta Manager is an SEO tool that is used to improve the SEO of a website
 * [Configuration](./#configuration)
 * [Usage](./#usage)
 * [Example](./#example)
+* [Stargazers](./#stargazers)
+* [Forkers](./#forkers)
 * [Maintainers](./#maintainers)
 * [License](./#license)
 
@@ -107,6 +109,14 @@ The above will use the predefined configurations to prefill the generated meta t
     </body>
     </html>
 ```
+
+### Stargazers
+
+[![Stargazers repo roster for @davmixcool/laravel-meta-manager](https://reporoster.com/stars/davmixcool/laravel-meta-manager)](https://github.com/davmixcool/laravel-meta-manager/stargazers)
+
+### Forkers
+
+[![Forkers repo roster for @davmixcool/laravel-meta-manager](https://reporoster.com/forks/davmixcool/laravel-meta-manager)](https://github.com/davmixcool/laravel-meta-manager/network/members)
 
 ### Maintainers
 
