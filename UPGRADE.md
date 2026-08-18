@@ -13,7 +13,9 @@ printed is still printed, with the same value.
 | Laravel | 5.x and above | 10, 11, 12 or 13 |
 
 If your application runs an older PHP, Composer keeps you on v1 and nothing breaks. You can stay
-there for as long as you need.
+there for as long as you need. The same applies on **Laravel 9 or below**: v2 requires Laravel 10+,
+so Composer resolves those applications to v1 automatically — verified on Laravel 6, 7, 8 and 9. v1
+remains supported for security fixes.
 
 **On Laravel 10 or 11?** You can still upgrade. Both lines are end of life and carry an unpatched
 security advisory, so Composer will not install them into a new project — but your application
