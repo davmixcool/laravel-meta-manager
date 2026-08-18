@@ -1,4 +1,6 @@
 /vendor
-composer.phar
 composer.lock
+.phpunit.result.cache
+.phpunit.cache
+.idea
 .DS_Store

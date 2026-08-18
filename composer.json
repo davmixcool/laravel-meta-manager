@@ -2,8 +2,8 @@
     "name": "davmixcool/laravel-meta-manager",
     "type": "library",
     "description": "Laravel Meta Manager is an SEO tool that is used to improve SEO of a website or specific page by adding recommended meta tags to your application. ",
-    "keywords": ["seo","tags","Social","davmixcool","laravel-meta-manager","meta-tags"],
-    "homepage": "https://github.com/davmixcool/laravel-meta-manager",
+    "keywords": ["seo","tags","meta-tags","metadata","open-graph","twitter-cards","social","laravel","davmixcool","laravel-meta-manager"],
+    "homepage": "https://metamanager.dev",
     "license": "MIT",
     "authors": [
         {
@@ -13,23 +13,41 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/view": "^10.0|^11.0|^12.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "~4.0||~5.0"
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^10.0|^11.0"
     },
     "autoload": {
         "psr-4": {
             "Davmixcool\\MetaManager\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Davmixcool\\MetaManager\\Tests\\": "tests"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "Davmixcool\\MetaManager\\MetaServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Meta": "Davmixcool\\MetaManager\\Facades\\Meta"
+            }
         }
     },
-    
-    "minimum-stability": "stable"
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test:compat": "vendor/bin/phpunit --testsuite=compatibility"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

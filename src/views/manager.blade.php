@@ -1,58 +1,20 @@
-	<!-- Standard SEO -->
-	@isset($title)
-		<title>{{ $title }}</title>
-	@endisset
-	
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="referrer" content="{{ !empty($referrer)? $referrer : config('meta.referrer') }}">
-	<meta name="robots" content="{{ !empty($robots)? $robots : config('meta.robots') }}">
-	<meta name="description" content="{{ !empty($description)? $description : config('meta.description') }}">
-	<meta name="keywords" content="{{ !empty($keywords)? $keywords : config('meta.keywords') }}">
-	@if(config('meta.geo_region') !=='')
-	<meta name="geo.region" content="{{ config('meta.geo_region') }}">
-	@endif
-	@if(config('meta.geo_position') !=='')
-	<meta name="geo.position" content="{{ config('meta.geo_position') }}">
-	<meta name="ICBM" content="{{ config('meta.geo_position') }}">
-	@endif
-	<meta name="geo.placename" content="{{  config('app.name') }}">
+{{--
+    The Blade entry point.
 
+    Applications include this view directly:
 
-	<!-- Dublin Core basic info -->
-	<meta name="dcterms.Format" content="text/html">
-	<meta name="dcterms.Language" content="{{ config('app.locale') }}">
-	<meta name="dcterms.Identifier" content="{{ url()->current() }}">
-	<meta name="dcterms.Relation" content="{{  config('app.name') }}">
-	<meta name="dcterms.Publisher" content="{{  config('app.name') }}">
-	<meta name="dcterms.Type" content="text/html">
-	<meta name="dcterms.Coverage" content="{{ url()->current() }}">
-	<meta name="dcterms.Title" content="{{ !empty($title)? $title : config('meta.title') }}">
-	<meta name="dcterms.Subject" content="{{ !empty($keywords)? $keywords : config('meta.keywords') }}">
-	<meta name="dcterms.Contributor" content="{{ !empty($author)? $author : config('meta.author') }}">
-	<meta name="dcterms.Description" content="{{ !empty($description)? $description : config('meta.description') }}">
+        @include('meta::manager', ['title' => '...', 'description' => '...'])
 
+    It delegates to the render engine's extended profile, which prints the full
+    v1 tag set and adds only non-conflicting tags on top. Nothing in an existing
+    application needs to change.
 
-	<!-- Facebook OpenGraph -->
-	<meta property="og:locale" content="{{  config('app.locale') }}">
-	<meta property="og:type" content="{{ !empty($type)? $type : config('meta.type') }}">
-	<meta property="og:url" content="{{ url()->current() }}">
-	<meta property="og:title" content="{{ !empty($title)? $title : config('meta.title') }}">
-	<meta property="og:description" content="{{ !empty($description)? $description : config('meta.description') }}">
-	<meta property="og:image" content="{{ !empty($image)? $image : config('meta.image') }}">
-	<meta property="og:site_name" content="{{  config('app.name') }}">
+    get_defined_vars() is used on purpose: Blade shares the parent view's scope
+    with @include, and v1 resolved its variables from that same shared scope.
+    MetaManager filters it down to the ten documented include variables.
 
-	@if(config('meta.fb_app_id') !=='')
-	<meta property="fb:app_id" content="{{ config('meta.fb_app_id') }}"/>
-	@endif
-
-	<!-- Twitter Card -->
-	@if(config('meta.twitter_card') !=='')
-	<meta name="twitter:card" content="{{ !empty($twitter_card)? $twitter_card : config('meta.twitter_card') }}">
-	@endif
-	@if(config('meta.twitter_site') !=='' || !empty($twitter_site))
-	<meta name="twitter:site" content="{{ !empty($twitter_site)? $twitter_site : config('meta.twitter_site') }}">
-	@endif
-	<meta name="twitter:title" content="{{ !empty($title)? $title : config('meta.title') }}">
-	<meta name="twitter:description" content="{{ !empty($description)? $description : config('meta.description') }}">
-	<meta name="twitter:image" content="{{ !empty($image)? $image : config('meta.image') }}">
-
+    The original v1 template is preserved verbatim at
+    tests/fixtures/v1/manager.blade.php and is diffed against this output by
+    the compatibility test suite.
+--}}
+{!! \Davmixcool\MetaManager\Facades\Meta::blade(get_defined_vars()) !!}
