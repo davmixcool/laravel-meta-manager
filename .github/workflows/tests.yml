@@ -13,13 +13,18 @@ jobs:
       fail-fast: false
       matrix:
         php: ['8.1', '8.2', '8.3', '8.4']
-        laravel: [10, 11, 12]
+        laravel: [10, 11, 12, 13]
         exclude:
           # Laravel 11 and 12 require PHP 8.2+
           - php: '8.1'
             laravel: 11
           - php: '8.1'
             laravel: 12
+          # Laravel 13 requires PHP 8.3+
+          - php: '8.1'
+            laravel: 13
+          - php: '8.2'
+            laravel: 13
 
     name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
 
@@ -32,9 +37,20 @@ jobs:
           extensions: dom, libxml, mbstring
           coverage: none
 
+      # Laravel 10 and 11 are EOL with no advisory-clean release
+      # (PKSA-mdq4-51ck-6kdq covers both lines in full), so Composer refuses
+      # them by default. Applications already holding a locked laravel/framework
+      # upgrade fine -- verified -- so these versions stay supported and stay
+      # tested. The bypass exists only inside this throwaway CI container.
+      - name: Allow EOL Laravel to resolve
+        if: matrix.laravel == 10 || matrix.laravel == 11
+        run: composer config --global policy.advisories.block false
+
       - name: Install dependencies
         run: |
-          composer require "illuminate/support:^${{ matrix.laravel }}.0" --no-interaction --no-update
+          composer require "illuminate/support:^${{ matrix.laravel }}.0" \
+                           "illuminate/view:^${{ matrix.laravel }}.0" \
+                           --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Backwards-compatibility suite

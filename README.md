@@ -17,7 +17,14 @@ Laravel Meta Manager is an SEO tool that is used to improve the SEO of a website
 ## Requirements
 
 * PHP 8.1 and above
-* Laravel 10, 11 or 12
+* Laravel 10, 11, 12 or 13
+
+Laravel 13 requires PHP 8.3 and above.
+
+Laravel 10 and 11 have reached end of life. This package still supports them and still tests against
+them, so an existing application can upgrade. Note that Composer now refuses to install those Laravel
+versions into a *new* project, because every release in both lines carries an unpatched security
+advisory.
 
 > Upgrading from v1? Nothing in your application needs to change. See [UPGRADE.md](UPGRADE.md).
 

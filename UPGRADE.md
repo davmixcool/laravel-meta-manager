@@ -10,10 +10,15 @@ printed is still printed, with the same value.
 | | v1 | v2 |
 | :--- | :--- | :--- |
 | PHP | 5.4 and above | 8.1 and above |
-| Laravel | 5.x and above | 10, 11 or 12 |
+| Laravel | 5.x and above | 10, 11, 12 or 13 |
 
 If your application runs an older PHP, Composer keeps you on v1 and nothing breaks. You can stay
 there for as long as you need.
+
+**On Laravel 10 or 11?** You can still upgrade. Both lines are end of life and carry an unpatched
+security advisory, so Composer will not install them into a new project — but your application
+already has Laravel in its lock file, and installing this package does not re-resolve it. This path
+is covered by the test suite.
 
 ## Will my pages change?
 
