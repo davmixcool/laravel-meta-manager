@@ -4,6 +4,19 @@ Laravel Meta Manager is an SEO tool that is used to improve the SEO of a website
 
 [![GitHub license](https://img.shields.io/github/license/davmixcool/laravel-meta-manager.svg)](https://github.com/davmixcool/laravel-meta-manager/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/davmixcool/laravel-meta-manager.svg)](https://github.com/davmixcool/laravel-meta-manager/issues) [![CodeFactor](https://www.codefactor.io/repository/github/davmixcool/laravel-meta-manager/badge)](https://www.codefactor.io/repository/github/davmixcool/laravel-meta-manager) [![Stable](https://poser.pugx.org/davmixcool/laravel-meta-manager/v/stable.svg)](https://poser.pugx.org/davmixcool/laravel-meta-manager/v/stable.svg) [![Download](https://poser.pugx.org/davmixcool/laravel-meta-manager/d/total.svg)](https://poser.pugx.org/davmixcool/laravel-meta-manager/d/total.svg) ![Twitter](https://img.shields.io/twitter/url/https/github.com/davmixcool/laravel-meta-manager.svg?style=social)
 
+> ### You are reading the v1 documentation
+>
+> **v1 works on any Laravel version and is the right choice if you are on Laravel 9 or below.**
+> Nothing here is broken or urgent — Composer gave you v1 because v2 requires Laravel 10+, which is
+> exactly what should happen.
+>
+> **v2** is available for **Laravel 10+ on PHP 8.1+**. It renders the same tags plus canonical URLs,
+> image dimensions and alt text, and keeps the `@include('meta::manager')` API working unchanged —
+> see the [v2 README](https://github.com/davmixcool/laravel-meta-manager) and
+> [upgrade notes](https://github.com/davmixcool/laravel-meta-manager/blob/master/UPGRADE.md).
+>
+> **1.x is maintained for security fixes only.** No new features, no bug fixes.
+
 ## SEO Features
 
 * Standard Meta Tags
@@ -15,6 +28,11 @@ Laravel Meta Manager is an SEO tool that is used to improve the SEO of a website
 ## Requirements
 
 * PHP 5.4 and above
+* Laravel 5.5 and above, with no upper bound — tested on Laravel 5.5 through 13
+
+Laravel 5.5 and above register the service provider automatically — this is tested on 5.5, 5.6, 5.7
+and 5.8. On 5.3 and 5.4 the provider works but must be added to `config/app.php` by hand, as shown
+below; those two versions are not covered by tests.
 
 ## Steps:
 
