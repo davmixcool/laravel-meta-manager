@@ -28,7 +28,7 @@ advisory.
 
 **On Laravel 9 or below?** You get v1, and that is the correct outcome. `composer require
 davmixcool/laravel-meta-manager` resolves to 1.2 on its own, because v2 requires Laravel 10+ — this is
-tested on Laravel 6, 7, 8 and 9. If your application already requires `^1.0`, `composer update` keeps
+tested on Laravel 5.5 through 9. If your application already requires `^1.0`, `composer update` keeps
 you there too. v1 is supported for security fixes and its documentation is on the
 [1.x branch](https://github.com/davmixcool/laravel-meta-manager/tree/1.x).
 
