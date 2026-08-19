@@ -36,14 +36,14 @@ below; those two versions are not covered by tests.
 
 ## Steps:
 
-* [Install](./#install)
-* [Configuration](./#configuration)
-* [Usage](./#usage)
-* [Example](./#example)
-* [Stargazers](./#stargazers)
-* [Forkers](./#forkers)
-* [Maintainers](./#maintainers)
-* [License](./#license)
+* [Install](#install)
+* [Configuration](#configuration)
+* [Usage](#usage)
+* [Example](#example)
+* [Stargazers](#stargazers)
+* [Forkers](#forkers)
+* [Maintainers](#maintainers)
+* [License](#license)
 
 ### Install
 
