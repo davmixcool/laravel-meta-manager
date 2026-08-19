@@ -231,6 +231,35 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Geo Placename
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the geographic place name of your location, such as
+    | a city or region.
+    |
+    | Leave empty to keep the previous behaviour of using your application name.
+    | Set it to false to leave the tag out entirely.
+    |
+    */
+    'geo_placename' => '',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dublin Core Subject
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the Dublin Core subject of your content. A subject is
+    | the topic of the page, which is not always the same as the keywords you
+    | would use for search engines.
+    |
+    | Leave empty to keep the previous behaviour of reusing your keywords. Set it
+    | to false to leave the tag out entirely.
+    |
+    */
+    'dcterms_subject' => '',
+
+    /*
+    |--------------------------------------------------------------------------
     | Duplicate Render Guard
     |--------------------------------------------------------------------------
     |

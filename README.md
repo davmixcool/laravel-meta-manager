@@ -99,6 +99,8 @@ Setup default application meta in`meta.php`config. \(Optional but recommended\)
 | `image_height` | Here you may provide the height of your image so crawlers can lay out the preview before it loads. |
 | `image_alt` | Here you may provide the alternative text describing your image. |
 | `blade_tags` | Here you may specify which tags `@include('meta::manager')` prints, either `extended` or `standard`. |
+| `geo_placename` | Here you specify the place name of your location, such as a city. Leave empty to use your application name, or set it to `false` to leave the tag out. |
+| `dcterms_subject` | Here you may specify the Dublin Core subject of your content, which is not always the same as your keywords. Leave empty to reuse your keywords, or set it to `false` to leave the tag out. |
 
 ### Usage
 

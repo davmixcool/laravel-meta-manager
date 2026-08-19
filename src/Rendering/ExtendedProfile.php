@@ -49,6 +49,10 @@ class ExtendedProfile
         $twitterCard = $this->value($vars, 'twitter_card', $data->twitter->get('card'), 'twitter_card');
         $twitterSite = $this->value($vars, 'twitter_site', $data->twitter->get('site'), 'twitter_site');
 
+        // Issue #13: Dublin Core Subject is a topic, not SEO keywords. It is now
+        // separately configurable; defaulting to keywords preserves v1 output.
+        $subject = $this->optionalTagValue('dcterms_subject', $keywords);
+
         // --- Standard SEO -------------------------------------------------
         $tags->add(Tag::raw('<!-- Standard SEO -->', 'comment:standard-seo'));
 
@@ -75,7 +79,14 @@ class ExtendedProfile
             $tags->add(Tag::meta('ICBM', Config::get('geo_position')));
         }
 
-        $tags->add(Tag::meta('geo.placename', $appName));
+        // Issue #11: v1 hardcoded config('app.name') here with no way to set or
+        // suppress it. geo.placename is a geographic name, so it is now
+        // configurable — defaulting to app.name keeps existing output identical.
+        $placename = $this->optionalTagValue('geo_placename', $appName);
+
+        if ($placename !== null) {
+            $tags->add(Tag::meta('geo.placename', $placename));
+        }
 
         // --- Dublin Core --------------------------------------------------
         $tags->add(Tag::raw('<!-- Dublin Core basic info -->', 'comment:dublin-core'));
@@ -87,7 +98,9 @@ class ExtendedProfile
         $tags->add(Tag::meta('dcterms.Type', 'text/html'));
         $tags->add(Tag::meta('dcterms.Coverage', $current));
         $tags->add(Tag::meta('dcterms.Title', $title));
-        $tags->add(Tag::meta('dcterms.Subject', $keywords));
+        if ($subject !== null) {
+            $tags->add(Tag::meta('dcterms.Subject', $subject));
+        }
         $tags->add(Tag::meta('dcterms.Contributor', $author));
         $tags->add(Tag::meta('dcterms.Description', $description));
 
@@ -202,6 +215,28 @@ class ExtendedProfile
         }
 
         return $data->title;
+    }
+
+    /**
+     * Resolve a tag whose value may be configured, defaulted, or suppressed.
+     *
+     * An absent key and an empty string both mean "use the default" — the
+     * compatibility suite replaces the whole meta config with v1's fourteen
+     * keys, so these arrive as null rather than ''. Only an explicit false
+     * suppresses the tag; a fallback that is itself '' still renders, because
+     * v1 emitted these tags with empty content.
+     *
+     * @return string|null  null suppresses the tag entirely
+     */
+    private function optionalTagValue(string $key, string $fallback): ?string
+    {
+        $value = Config::get($key);
+
+        if ($value === false) {
+            return null;
+        }
+
+        return ($value === null || $value === '') ? $fallback : (string) $value;
     }
 
     private function configuredCanonical(): ?string

@@ -165,6 +165,71 @@ class InteropTest extends TestCase
     }
 
     #[Test]
+    public function geo_placename_defaults_to_the_application_name(): void
+    {
+        // Issue #11. The key is absent from a v1 config entirely, so this also
+        // covers null resolving the same way an empty string does.
+        $this->useV1PublishedConfig();
+
+        $tags = TagSet::parse($this->renderV2Blade([]));
+
+        $this->assertSame('Acme Corp', $tags->first('meta:name:geo.placename'));
+    }
+
+    #[Test]
+    public function geo_placename_can_be_set_to_a_real_place(): void
+    {
+        $this->useV1PublishedConfig(['geo_placename' => 'Lagos']);
+
+        $this->assertSame('Lagos', TagSet::parse($this->renderV2Blade([]))->first('meta:name:geo.placename'));
+    }
+
+    #[Test]
+    public function geo_placename_can_be_suppressed_entirely(): void
+    {
+        // v1 offered no way to remove this tag, which was half of issue #11.
+        $this->useV1PublishedConfig(['geo_placename' => false]);
+
+        $this->assertFalse(TagSet::parse($this->renderV2Blade([]))->has('meta:name:geo.placename'));
+    }
+
+    #[Test]
+    public function dcterms_subject_defaults_to_keywords(): void
+    {
+        // Issue #13. Absent key must behave exactly as v1 did.
+        $this->useV1PublishedConfig();
+
+        $tags = TagSet::parse($this->renderV2Blade(['keywords' => 'laravel, seo']));
+
+        $this->assertSame('laravel, seo', $tags->first('meta:name:dcterms.Subject'));
+    }
+
+    #[Test]
+    public function dcterms_subject_is_independent_of_keywords(): void
+    {
+        // The actual point of issue #13: a Dublin Core subject is a topic, and
+        // must be settable without disturbing the SEO keywords.
+        $this->useV1PublishedConfig(['dcterms_subject' => 'Search engine optimisation']);
+
+        $tags = TagSet::parse($this->renderV2Blade(['keywords' => 'laravel, seo']));
+
+        $this->assertSame('Search engine optimisation', $tags->first('meta:name:dcterms.Subject'));
+        $this->assertSame('laravel, seo', $tags->first('meta:name:keywords'));
+    }
+
+    #[Test]
+    public function dcterms_subject_can_be_suppressed_entirely(): void
+    {
+        $this->useV1PublishedConfig(['dcterms_subject' => false]);
+
+        $tags = TagSet::parse($this->renderV2Blade(['keywords' => 'laravel, seo']));
+
+        $this->assertFalse($tags->has('meta:name:dcterms.Subject'));
+        // Suppressing the subject must not touch the keywords tag.
+        $this->assertSame('laravel, seo', $tags->first('meta:name:keywords'));
+    }
+
+    #[Test]
     public function metadata_renders_only_once_per_request(): void
     {
         $this->useV1PublishedConfig();
