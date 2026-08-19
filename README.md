@@ -36,15 +36,15 @@ you there too. v1 is supported for security fixes and its documentation is on th
 
 ## Steps:
 
-* [Install](./#install)
-* [Configuration](./#configuration)
-* [Usage](./#usage)
-* [Example](./#example)
-* [Fluent API](./#fluent-api)
-* [Stargazers](./#stargazers)
-* [Forkers](./#forkers)
-* [Maintainers](./#maintainers)
-* [License](./#license)
+* [Install](#install)
+* [Configuration](#configuration)
+* [Usage](#usage)
+* [Example](#example)
+* [Fluent API](#fluent-api)
+* [Stargazers](#stargazers)
+* [Forkers](#forkers)
+* [Maintainers](#maintainers)
+* [License](#license)
 
 ### Install
 
