@@ -188,6 +188,12 @@ You can also check your meta from the command line;
 php artisan meta:check
 ```
 
+### MetaManager.dev
+
+`meta:check` validates the meta you are about to render. [MetaManager.dev](https://metamanager.dev) checks the other half: it fetches a deployed URL the way a crawler does and shows what actually arrived — whether the `og:image` resolves at the dimensions you claimed, whether the canonical survived your CDN, and how each platform previews the page. Free for single pages, no account needed.
+
+It also runs an [MCP server](https://metamanager.dev/docs/guides/mcp), so an AI agent can check a page, fix it, and check again to confirm the score moved.
+
 ### Stargazers
 
 [![Stars](https://img.shields.io/github/stars/davmixcool/laravel-meta-manager.svg?style=social)](https://github.com/davmixcool/laravel-meta-manager/stargazers)
